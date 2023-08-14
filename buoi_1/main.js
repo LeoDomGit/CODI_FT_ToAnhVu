@@ -7,13 +7,13 @@ function getName() {
     name = document.getElementById('name').value;
     arr.push(name);
     const div = document.getElementsByClassName('div1');
-    console.log(arr);
+    // console.log(arr);
 
     var str = '';
     arr.forEach(el => {
         str +=el + `<br>`;
     });
-    console.log(str);
+    // console.log(str);
     div[1].innerHTML = str;
 }
 
