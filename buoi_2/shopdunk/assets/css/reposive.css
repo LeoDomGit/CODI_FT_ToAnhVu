@@ -1,0 +1,31 @@
+@media (max-width : 1200px) {
+    .header-menu{
+        display: block;
+    }
+    .nav{
+        display: none;
+
+    }
+    .search-input{
+        width: 100%;
+        padding: 8px;
+    }
+    .footer{
+        display: block;
+    }
+    .footer>h1 {
+        background-color: black;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width : 739px) {
+    .product{
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+}
+
+@media (min-width : 740px) and (max-width : 1200px) {
+
+}
