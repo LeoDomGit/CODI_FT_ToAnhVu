@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap5.1.css">
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery3x.js"></script>
+    <title>Document</title>
+
+    <script>
+        $(document).ready(function() {
+          login();
+        })
+        function login() {
+            $('#loginBtn').click(function(event){
+                event.preventDefault();
+                var modal = $('#loginModal')
+                $('#loginModal').modal('show');
+                $('#submitLoginBtn').click(function(event) {
+                    event.preventDefault();
+                    var email = $('#email').val().trim();
+                    if(email == ''){
+                        alert('chưa nhập Email');
+                    }else{
+                        $.ajax({
+                            type : 'post',
+                            url : 'https://students.trungthanhweb.com/api/checkLoginhtml',
+                            data : {
+                              email : email
+                            },
+                            dataType : 'JSON',
+                            success : function(res) {
+                              if(res.check == true){
+                                console.log(res.apitoken);
+                                localStorage.setItem('token', res.apitoken);
+                                alert('Đăng nhập thành công');
+                                $('#loginModal').modal('hide') ;
+                              }else{
+                                alert('Thật là Thất Bại');
+                                alert('Hãy nhập cho đúng Email nào!');
+                              }
+                            }
+                        })
+                    }
+                })
+            })
+        }
+    </script>
+
+</head>
+<body>         
+
+  <!-- Modal -->
+  <div class="modal" tabindex="-1" id="loginModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="email" name="" id="email" class="form-control" placeholder="Nhập Email" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="submitLoginBtn">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-sm bg-body-tertiary bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="loginBtn" href="">Login</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Container -->
+  <div class="container">
+      <div class="row  mt-5">
+          <div class="col-md-8">
+              <input type="text" class="form-control" placeholder="enter" id="todo">
+          </div>
+          <div class="col-md-4">
+              <button class="btn btn-primary w-100" id="addTodoBtn">Thêm</button>
+          </div>
+          
+      </div>
+  </div>
+
+
+  
+</body>
+</html>
