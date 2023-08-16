@@ -37,13 +37,13 @@ for(let i = 0; i < button2.length; i++) {
             `+element.name+`
             </th>
             <th>
-            `+element.price+`
+            `+Intl.NumberFormat('en-US').format(element.price)+`
             </th>
             <th>
             `+element.quantity+`
             </th>
             <th>
-            `+sum+` `+'Đồng'+`
+            `+Intl.NumberFormat('en-US').format(sum)+` `+'Đồng'+`
             </th>
         </tr>
         `;
