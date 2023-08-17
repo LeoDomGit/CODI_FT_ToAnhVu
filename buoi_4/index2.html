@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap5.1.css">
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery3x.js"></script>
+    <script src="./js/sweetalert2.js"></script>
+    <script src="./js/script2.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <!-- header -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand text-white" href="#">HOME</a>
+              <button class="btn btn-info navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Thương Hiệu
+                        </a>
+                        <ul class="dropdown-menu mt-1 bg-dark" id="thuonghieu">
+                            
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Loại Sản Phẩm
+                        </a>
+                        <ul class="dropdown-menu mt-1 bg-dark" id="typePro">
+                    
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="#">Hóa Đơn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="#" id="loginBtn">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="#" id="logoutBtn">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="#">API</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+        </nav>
+        <!-- body -->
+        <div class="wrapper">
+            
+            <div>
+                <img class="w-100" src="https://shopdunk.com/images/uploaded/PC13.png" alt="">
+            </div>
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-9 col-md-3 mt-3">
+                        <img class="w-100" src="https://shopdunk.com/images/uploaded/Bonus%20banner-36.png" alt="">
+                    </div>
+                    <div class="col-9 col-md-3 mt-3">
+                        <img class="w-100" src="https://shopdunk.com/images/uploaded/Bonus%20banner-26.png" alt="">
+                    </div>
+                    <div class="col-9 col-md-3 mt-3">
+                        <img class="w-100" src="https://shopdunk.com/images/uploaded/Bonus%20banner-16.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="iphone text-center my-3">IPHONE</h3>
+            <hr class="w-90">
+            <!-- Prouduct list -->
+            <div class="container" >
+                <div class="row gy-4" id="prouduct">     
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-4 ">  
+                        <button type="button" class="btn btn-lg btn-outline-success my-5 w-100">Xem thêm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="row justify-content-center bg-dark">
+            <div class="col-3 col-md-8 my-auto text-center text-white fs-5">@ TÔ ANH VŨ</div>
+            <div class="col-9 col-md-4">
+                <iframe class="map-link" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62700.855137731545!2d106.69181279237752!3d10.826348722867804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752763f23816ab%3A0x282f711441b6916f!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTxrAgcGjhuqFtIEvhu7kgdGh14bqtdCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1692076887163!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </footer>
+
+        <!-- Modal - Login -->
+        <div class="modal" tabindex="-1" id="loginModal">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="email" name="" id="email" class="form-control" placeholder="Nhập Email" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submitLoginBtn">Login</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
