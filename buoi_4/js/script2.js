@@ -2,7 +2,6 @@ $(document).ready(function() {
     login();
     logout();
     loadData();
-    loadProuct();
 })
 const url = 'https://students.trungthanhweb.com/api/';
 // khai báo toast message
@@ -130,6 +129,7 @@ function loadData(){
                 }
                 // Get value for prouduct
                 var products = res.products.data;
+                
                 if(products.length > 0){
                     var str = '';
                     products.forEach(el => {
