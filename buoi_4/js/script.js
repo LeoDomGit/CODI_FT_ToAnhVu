@@ -245,7 +245,7 @@ function finish(){
                 });
               
             } else if (result.isDenied) {
-              Swal.fire('Changes are not saved', '', 'info').then(()=>{
+              Swal.fire('Tiến tục hoàn thành Task', '', 'info').then(()=>{
                 window.location.reload();
               })
             }
