@@ -115,12 +115,12 @@ function createTodo(){
                             window.location.reload();
                         })
                     }               
-                    // if(res.msg.apitoken){                   
-                    //     Toast.fire({
-                    //         icon: 'error',
-                    //         title: 'Apitoken sai'
-                    //     }) 
-                    // }
+                    else if(res.msg.apitoken){                   
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'Apitoken sai'
+                        }) 
+                    }
                     else if(res.msg.todo){                        
                         Toast.fire({
                             icon: 'error',
@@ -257,6 +257,7 @@ function deleteTodo(){
     $('.delBtn').click(function (e) { 
         e.preventDefault();
         var id = $(this).attr('data-id');
+        console.log(id)
         Swal.fire({
             title: 'Bạn có chắc muốn xóa?',
             showDenyButton: true,

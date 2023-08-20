@@ -1,0 +1,13 @@
+
+.wrapper{
+    overflow-x: auto;
+}
+.img-product {
+    width: 50%;
+}
+.cartLink{
+    text-decoration: none;
+    color: #fff;
+    margin-right: 12px;
+    font-size: 24px;
+}
