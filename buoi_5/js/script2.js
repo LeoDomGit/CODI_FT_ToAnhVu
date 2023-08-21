@@ -1,8 +1,9 @@
 $(document).ready(function() {
     login();
     logout();
-    loadData();
     loadMore();
+    loadData();
+    
 })
 const url = 'https://students.trungthanhweb.com/api/';
 // khai báo toast message
@@ -154,7 +155,7 @@ function loadMore() {
                                     <p class="card-text">Giá : `+Intl.NumberFormat('en-US').format(el.price)+`</p>
                                     <p class="card-text">`+el['catename']+`</p>
                                     <p class="card-text">`+el.brandname+`</p>
-                                    <a href="#" class="btn btn-primary viewBtn" data-id="`+el.id+`">Chi tiết</a>
+                                    <a href="http://127.0.0.1:5501/buoi_5/chitiet.html#" class="btn btn-primary viewBtn" data-id="`+el.id+`">Chi tiết</a>
                                     <a href="#" class="btn btn-success addBtn" data-id="`+el.id+`">Thêm</a>
                                 </div>
                             </div>    
@@ -170,6 +171,7 @@ function loadMore() {
                     $('#showMoreBtn').hide();
                 }
                 addToCart();
+                loadProduct();
             }
         }
     });       
@@ -207,3 +209,29 @@ function addToCart(){
     });
 }
 
+function loadProduct(){
+    $('.viewBtn').click(function (e) { 
+        e.preventDefault();
+        var id = Number($(this).attr('data-id'));
+        $.ajax({
+            type: "GET",
+            url: url+'home',
+            data: {
+                apitoken : localStorage.getItem('token')
+            },
+            dataType: "dataType",
+            success: function (res) {
+                var products = res.products.data;
+                if(products.length > 0){
+                    products.forEach(el => {
+                        if(el.id == id){
+                            var str = el.content;                          
+                        }
+                    });
+                    console.log(str);
+                    $('#content').html(str);
+                }            
+            }
+        });
+    });
+}
