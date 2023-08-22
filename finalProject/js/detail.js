@@ -156,16 +156,23 @@ function sliderImageChange(){
     });
 }
 function owl(){
-    $('.owl-carousel').owlCarousel({
+    $('#carousel').owlCarousel({
         loop:true,
         margin:10,
-        responsiveClass: true,
+        responsiveClass:true,
         responsive:{
             0:{
-                items:2
+                items:1,
+                nav:true
             },
-            900:{
-                items:3
+            600:{
+                items:3,
+                nav:false
+            },
+            1000:{
+                items:5,
+                nav:true,
+                loop:false
             }
         }
     })
